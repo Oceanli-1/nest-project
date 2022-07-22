@@ -68,6 +68,36 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 - Website - [https://nestjs.com](https://nestjs.com/)
 - Twitter - [@nestframework](https://twitter.com/nestframework)
 
+## 使用Swagger
+
+```js
+// 初始化
+yarn add @nestjs/swagger swagger-ui-express -S
+
+// 安装完依赖包后，只需要在 main.ts 中引入，并设置一些基本信息即可：
+// src/main.ts
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+
+async function bootstrap() {
+  // ...
+
+  // 配置 Swagger
+  const options = new DocumentBuilder()
+    .setTitle('Nest zero to one')
+    .setDescription('The nest-zero-to-one API description')
+    .setVersion('1.0')
+    .addTag('test')
+    .build();
+  const document = SwaggerModule.createDocument(app, options);
+  SwaggerModule.setup('api-doc', app, document);
+
+  await app.listen(3000);
+}
+bootstrap();
+
+// 参考地址：https://juejin.cn/post/6844904125814063118
+```
+
 ## License
 
 Nest is [MIT licensed](LICENSE).
