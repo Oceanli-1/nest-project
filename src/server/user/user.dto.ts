@@ -3,7 +3,7 @@ import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
 export class CreateUserDTO {
   @ApiProperty()
-  readonly _id: String;
+  readonly _id: string;
   @ApiProperty()
   @IsNotEmpty({message: '用户名不能为空'})
   @IsString({ message: '用户名必须是 String 类型' })
@@ -13,7 +13,7 @@ export class CreateUserDTO {
   @ApiPropertyOptional({
     description: '年龄随便写',
   })
-  readonly age: Number;
+  readonly age: number;
 }
 
 export class EditUserDTO {
@@ -26,5 +26,5 @@ export class EditUserDTO {
   @ApiPropertyOptional({
     description: '年龄随便写',
   })
-  readonly age: Number;
+  readonly age: number;
 }
